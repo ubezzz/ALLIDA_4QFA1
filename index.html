@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="container">
+    <form id="signupForm">
+    <fieldset id="signup">
+      <legend><b>Sign Up</b></legend>
+      <div>
+        <label for="Name">Full Name: </label><br/>
+        <input type="text" id="Name" name="Name" class="box" onblur="validateInput(this)" onfocus="noValidation(this)"> <br>
+      </div>
+      <div>
+        <label for="email">Email:</label> <br>
+        <input type="email" name="email" id="email" class="box" onblur="validateInput(this)" onfocus="noValidation(this)">
+      </div>
+      <div>
+        <label for="userName">Username: </label> <br>
+        <input type="text" id="userName" name="username" class="box"onblur="validateInput(this)" onfocus="noValidation(this)"> <br>
+      </div>
+      <div>
+        <label for="password">Password: </label> <br>
+        <input type="password" name="password" id="pword"class="box" onblur="validateInput(this)" onfocus="noValidation(this)">
+      </div>
+      <div>
+        <label for="Gender">Gender</label><br>
+        <select name="Gender" id="userGender"  class="box" onblur="validateInput(this)" onfocus="noValidation(this)">
+          <option value="" disabled selected>Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Prefer not to mention">Prefer not to mention</option>
+        </select>
+      </div>
+      <div>
+        <label for="address">Address: </label><br>
+        <input type="text" name="address" id="address"  class="box" onblur="validateInput(this)" onfocus="noValidation(this)">
+      </div>
+      <div>
+        <label for="interests">Interests: </label><br>
+        <textarea id="tArea" name="interests" rows="4" cols="30" class="box" onblur="validateInput(this)" onfocus="noValidation(this)"></textarea>
+      </div>
+      <div >
+        <input type="submit" value="Submit" id="button">
+        <button type="reset" id="button">Reset</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend><b>Information</b></legend>
+      <div id="output"></div>
+    </fieldset>
+  </form>
+</div>
+  <script>
+    function validateInput(element) {
+      if (element.value.trim() === '') {
+        element.style.border = '1px solid red';
+      } else {
+        element.style.border = '1px solid green';
+      }
+    }
+
+    function clearValidation(element) {
+      element.style.border = '';
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var fullName = document.getElementById('Name').value;
+      var email = document.getElementById('email').value;
+      var username = document.getElementById('userName').value;
+      var password = document.getElementById('pword').value;
+      var gender = document.getElementById('userGender').value;
+      var address = document.getElementById('address').value;
+      var interests = document.getElementById('tArea').value;
+
+      var outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = "Name: " + fullName + "<br>Email: " + email + "<br>Username: " + username + "<br>Password: " + password + "<br>Gender: " + gender + "<br>Address: " + address + "<br>Interests: " + interests;
+    });
+  </script>
+</body>
+</html>
