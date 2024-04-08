@@ -82,6 +82,11 @@
       var outputDiv = document.getElementById('output');
       outputDiv.innerHTML = "Name: " + fullName + "<br>Email: " + email + "<br>Username: " + username + "<br>Password: " + password + "<br>Gender: " + gender + "<br>Address: " + address + "<br>Interests: " + interests;
     });
+
+    document.getElementById('signupForm').addEventListener('reset', function(event) {
+    var outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = '';
+  });
   </script>
 </body>
 </html>
